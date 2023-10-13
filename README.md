@@ -10,6 +10,7 @@ Tech stack:
 -	Redis for Cache(OTP + Static data), Sentinel is optional
 -	All third party apps should be in Docker Compose
 - Unit testing
+- AWS 3S Bucket
 
 Branch names: 
 - Features(feature/TASK-KOD_add_redis)
