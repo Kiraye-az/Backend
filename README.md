@@ -9,3 +9,8 @@ Tech stack:
 -	PostgreSql
 -	¬Redis for Cache(OTP + Static data)
 -	All third party apps should be in Docker Compose
+
+
+Branch names: 
+- Features(feature/TASK-KOD_add_redis)
+- Bugfixes(bugfix/TASK-KOD_change_access_key)
