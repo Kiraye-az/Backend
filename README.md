@@ -7,7 +7,7 @@ Tech stack:
 -	Message Queue(RabbitMQ) for email system
 -	Migration(Liquibase)
 -	PostgreSql
--	Redis for Cache(OTP + Static data)
+-	Redis for Cache(OTP + Static data), Sentinel is optional
 -	All third party apps should be in Docker Compose
 - Unit testing
 
