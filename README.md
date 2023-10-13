@@ -9,5 +9,3 @@ Tech stack:
 -	PostgreSql
 -	¬Redis for Cache(OTP + Static data)
 -	All third party apps should be in Docker Compose
-
-OTP : Təhkükəsizlik kodu.
