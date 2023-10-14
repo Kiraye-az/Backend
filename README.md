@@ -11,6 +11,7 @@ Tech stack:
 -	All third party apps should be in Docker Compose
 - Unit testing
 - AWS 3S Bucket
+- Gradle
 
 Branch names: 
 - Features(feature/TASK-KOD_add_redis)
