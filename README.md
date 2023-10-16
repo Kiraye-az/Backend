@@ -12,6 +12,7 @@ Tech stack:
 - Unit testing
 - AWS 3S Bucket
 - Gradle
+- Checkstyle
 
 Branch names: 
 - Features(feature/TASK-KOD_add_redis)
