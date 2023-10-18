@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: kiraye-az-db
+    environment:
+      POSTGRES_USER: postgres001
+      POSTGRES_PASSWORD: postgres001
+    ports:
+      - "5432:5432"
