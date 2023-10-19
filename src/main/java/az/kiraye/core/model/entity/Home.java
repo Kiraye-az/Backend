@@ -1,36 +1,26 @@
 package az.kiraye.core.model.entity;
 
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@Entity(name="homes")
-@FieldDefaults( level= AccessLevel.PRIVATE)
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class Home {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
+  Integer id;
 
-    Double area;
+  Double area;
 
-    Boolean repair;
+  Boolean repair;
 
-    Double floor;
+  Double floor;
 
-    @Column(name="rooms_count")//?
-    Integer numberCount;
+  Integer numberCount;
 
-    @Column(name="description")
-    String description;
+  String description;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "category_id") //?
-    private Category category;
+  Category category;
 
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "agency_id")
-    Agency agency;
+  Agency agency;
 
 }
