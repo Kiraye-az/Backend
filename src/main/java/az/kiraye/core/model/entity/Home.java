@@ -6,11 +6,10 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@Entity(name="homes")
+
 @FieldDefaults( level= AccessLevel.PRIVATE)
 public class Home {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     Integer id;
 
     Double area;
@@ -19,10 +18,10 @@ public class Home {
 
     Double floor;
 
-    @Column(name="rooms_count")//?
+
     Integer numberCount;
 
-    @Column(name="description")
+
     String description;
 
     @ManyToOne
