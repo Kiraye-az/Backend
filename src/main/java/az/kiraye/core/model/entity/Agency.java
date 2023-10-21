@@ -5,10 +5,10 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
-@FieldDefaults(level = AccessLevel.PRIVATE)
+@FieldDefaults(level= AccessLevel.PRIVATE)
 public class Agency {
-  Integer id;
 
-  String agencyName;
+    Integer id;
 
+    String agencyName;
 }

@@ -1,0 +1,45 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="createHomeTable" author="yourname">
+        <createTable tableName="home">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="area" type="double">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="repair" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="floor" type="double">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rooms_count" type="int">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="description" type="String">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+
+
+    </changeSet>
+    <changeSet id="addAddressColumnToUserTable" author="yourname">
+        <addColumn tableName="home">
+            <column name="address_id" type="bigint"/>
+        </addColumn>
+    </changeSet>
+
+    <!-- Next, create a changeset to add a foreign key constraint -->
+    <changeSet id="addForeignKeyConstraint" author="yourname">
+        <addForeignKeyConstraint
+                baseTableName="homes"
+                baseColumnNames="category_id"
+                constraintName="fk_user_address"
+        referencedTableName="address">
+        <references tableName="category" columnNames="id" />
+    </addForeignKeyConstraint>
+</changeSet>
+</databaseChangeLog>
