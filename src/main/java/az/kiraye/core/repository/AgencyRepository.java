@@ -9,9 +9,12 @@ import java.util.List;
 public interface AgencyRepository {
 
     void insert(Agency agency);
+
     void update(Agency agency);
 
     void delete(int id);
+
     Agency findById(int id);
+
     List<Agency> findAll();
 }
