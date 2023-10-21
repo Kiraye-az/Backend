@@ -23,23 +23,6 @@
                 <constraints nullable="false" unique="true"/>
             </column>
         </createTable>
-
-
-    </changeSet>
-    <changeSet id="addAddressColumnToUserTable" author="yourname">
-        <addColumn tableName="home">
-            <column name="address_id" type="bigint"/>
-        </addColumn>
     </changeSet>
 
-    <!-- Next, create a changeset to add a foreign key constraint -->
-    <changeSet id="addForeignKeyConstraint" author="yourname">
-        <addForeignKeyConstraint
-                baseTableName="homes"
-                baseColumnNames="category_id"
-                constraintName="fk_user_address"
-        referencedTableName="address">
-        <references tableName="category" columnNames="id" />
-    </addForeignKeyConstraint>
-</changeSet>
 </databaseChangeLog>
