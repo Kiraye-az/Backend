@@ -4,7 +4,8 @@ services:
     image: postgres
     container_name: kiraye-az-db
     environment:
-      POSTGRES_USER: postgres001
-      POSTGRES_PASSWORD: alsu12345
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
     ports:
       - "5432:5432"
