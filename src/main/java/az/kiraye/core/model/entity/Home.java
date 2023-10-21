@@ -1,35 +1,27 @@
 package az.kiraye.core.model.entity;
 
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 @Data
-
 @FieldDefaults( level= AccessLevel.PRIVATE)
 public class Home {
 
-    Integer id;
+  Integer id;
 
-    Double area;
+  Double area;
 
-    Boolean repair;
+  Boolean repair;
 
-    Double floor;
+  Double floor;
 
+  Integer numberCount;
 
-    Integer numberCount;
+  String description;
 
+  Category category;
 
-    String description;
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "category_id") //?
-    private Category category;
-
-    @ManyToOne
-    @JoinColumn(referencedColumnName = "agency_id")
-    Agency agency;
+  Agency agency;
 
 }
