@@ -4,10 +4,10 @@
 
     <changeSet id="createAgencyTable" author="yourname">
         <createTable tableName="agencies">
-            <column name="id" type="bigint" autoIncrement="true">
+            <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="agency_name" type="varchar(50)">
+            <column name="agency_name" type="varchar(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
 
