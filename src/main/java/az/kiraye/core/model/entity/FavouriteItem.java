@@ -14,5 +14,4 @@ public class FavouriteItem {
 
   List<Home> homes = new ArrayList<>();
 
-
 }

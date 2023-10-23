@@ -4,13 +4,34 @@
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO agencies (agency_name)
-        VALUES (#{name})
+        VALUES (#{agencyName})
     </insert>
 
+    <update id="update" keyProperty="id">
+        update agencies
+        set agency_name = #{agencyName}
+        where id = #{id}
+    </update>
 
+    <delete id="delete">
+        delete
+        from agencies
+        where id = #{id}
+    </delete>
 
+    <select id="findById" parameterType="int">
+        SELECT *
+        FROM agencies
+        WHERE id = #{id}
+    </select>
 
-
-
+    <select id="getAllUsersWithPagination" resultType="Agency" parameterType="org.apache.ibatis.session.RowBounds">
+        SELECT * FROM agencies
+<!--        <trim prefix="WHERE" prefixOverrides="AND | OR">-->
+<!--            <if test="name != null">-->
+<!--                AND agency_name = #{agencyName}-->
+<!--            </if>-->
+<!--        </trim>-->
+    </select>
 
 </mapper>
