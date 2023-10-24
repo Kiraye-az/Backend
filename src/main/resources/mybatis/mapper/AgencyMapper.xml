@@ -4,8 +4,32 @@
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO agencies (agency_name)
-        VALUES (#{name})
+        VALUES (#{agencyName})
     </insert>
+
+    <insert id="update" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        UPDATE agencies SET agency_name=#{agencyName}
+        WHERE id = #{id}
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM agencies
+        WHERE id = #{id};
+    </delete>
+
+    <select id="findById" resultType="Agency">
+        SELECT
+        <include refid="agencyBaseColumns"/>
+        FROM users u
+        WHERE u.id = #{id}
+    </select>
+
+
+    <select id="findAll" resultType="Agency">
+        SELECT * FROM agencies;
+    </select>
+
+
 
 
 

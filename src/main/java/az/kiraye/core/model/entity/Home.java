@@ -16,7 +16,7 @@ public class Home {
 
   Double floor;
 
-  Integer numberCount;
+  Integer roomsCount;
 
   String description;
 
