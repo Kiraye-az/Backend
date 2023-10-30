@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="az.kiraye.core.repository.RoleRepository">
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-    <insert id="insert" >
-        INSERT INTO permissions (name) VALUES (#{name})
+<mapper namespace="az.kiraye.core.repository.PermissionRepository">
+
+    <!-- Insert a new person record -->
+    <insert id="insertPermission" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO permissions (name)
+        VALUES (#{name})
     </insert>
+
+    <!-- Update an existing person record -->
+    <update id="updatePermission" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        UPDATE permissions
+        SET name = #{name}
+        WHERE id = #{id}
+    </update>
+
+    <!-- Find all person records -->
+    <select id="findAllPermission" resultType="Permission">
+        SELECT name
+        FROM permissions
+    </select>
+
+    <!-- Find a person by their ID -->
+    <select id="findPermissionById" resultType="Permission" parameterType="java.lang.Long">
+        SELECT name
+        FROM permissions
+        WHERE id = #{id}
+    </select>
+
 </mapper>
+
+
+
+
+
+        <!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<!--<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >-->
+<!--<mapper namespace="az.kiraye.core.repository.PermissionRepository">-->
+
+<!--    <insert id="insert" >-->
+<!--        INSERT INTO permissions (name) VALUES (#{name})-->
+<!--    </insert>-->
+<!--    <insert id="update" useGeneratedKeys="true" keyColumn="id" keyProperty="id">-->
+<!--        UPDATE permissions SET name = #{name}-->
+<!--        WHERE id = #{id}-->
+<!--    </insert>-->
+<!--    <select id="findById" resultType="User">-->
+<!--        SELECT-->
+<!--        <include refid="userBaseColumns"/>-->
+<!--        FROM permissions p-->
+<!--        WHERE p.id = #{id}-->
+<!--    </select>-->
+<!--</mapper>-->

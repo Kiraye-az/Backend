@@ -4,3 +4,9 @@ spring:
   liquibase:
     enabled: true
     change-log: classpath:migrations/changelog-master.xml
+
+
+mybatis:
+      config-location: classpath:mybatis/mybatis-config.xml
+      mapper-locations: classpath:mybatis/mapper/*.xml
+      type-aliases-package: az.kiraye.core.model.entity

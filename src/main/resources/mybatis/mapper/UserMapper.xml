@@ -1,8 +1,57 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="az.kiraye.core.repository.UserRepository">
 
-    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        INSERT INTO users (name,mail,password) VALUES (#{fullName},#{mail},#{password})
+
+    <resultMap id="UserResultMap" type="az.kiraye.core.model.entity.User">
+        <id property="id" column="id" />
+        <result property="firstName" column="first_name" />
+        <result property="lastName" column="last_name" />
+        <result property="email" column="email" />
+        <result property="password" column="password" />
+        <result property="createdAt" column="created_at" />
+        <result property="updatedAt" column="updated_at" />
+        <result property="isActive" column="is_active" />
+        <result property="roleId" column="role_id" />
+    </resultMap>
+
+    <select id="findUserById" parameterType="int" resultMap="UserResultMap">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <select id="findUserByEmail" parameterType="az.kiraye.core.model.entity.User" resultMap="UserResultMap">
+        select * from users where email = #{email}
+    </select>
+
+    <select id="findAllUsers" resultMap="UserResultMap">
+        SELECT * FROM users
+    </select>
+
+    <insert id="insertUser" parameterType="az.kiraye.core.model.entity.User">
+        INSERT INTO users
+        (first_name, last_name, email, password, created_at, updated_at, is_active, role_id)
+        VALUES
+            (#{firstName}, #{lastName}, #{email}, #{password}, #{createdAt}, #{updatedAt}, #{isActive}, #{roleId})
     </insert>
+
+    <update id="updateUser" parameterType="az.kiraye.core.model.entity.User">
+        UPDATE users
+        SET
+            first_name = #{firstName},
+            last_name = #{lastName},
+            email = #{email},
+            password = #{password},
+            created_at = #{createdAt},
+            updated_at = #{updatedAt},
+            is_active = #{isActive},
+            role_id = #{roleId}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
 </mapper>
