@@ -2,12 +2,12 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
 
-    <changeSet id="createAgencyTable" author="vazifaguliyeva">
-        <createTable tableName="agencies">
+    <changeSet id="createCategoryTable" author="vazifaguliyeva">
+        <createTable tableName="categories">
             <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="agency_name" type="varchar(255)">
+            <column name="category_name" type="varchar(255)">
             </column>
 
         </createTable>
