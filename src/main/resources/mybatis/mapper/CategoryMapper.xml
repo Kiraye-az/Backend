@@ -1,40 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="az.kiraye.core.repository.AgencyRepository">
+<mapper namespace="az.kiraye.core.repository.CategoryRepository">
 
     <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        INSERT INTO agencies (agency_name)
-        VALUES (#{agencyName})
+        INSERT INTO categories (category_name)
+        VALUES (#{categoryName})
     </insert>
 
     <insert id="update" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-        UPDATE agencies SET agency_name=#{agencyName}
+        UPDATE categories SET category_name=#{categoryName}
         WHERE id = #{id}
     </insert>
 
     <delete id="delete">
-        DELETE FROM agencies
+        DELETE FROM categories
         WHERE id = #{id};
     </delete>
 
-    <select id="findById" resultType="Agency">
+    <select id="findById" resultType="Category">
         SELECT
-        <include refid="agencyBaseColumns"/>
-        FROM users u
-        WHERE u.id = #{id}
+        <include refid="categoryBaseColumns"/>
+        FROM categories c
+        WHERE c.id = #{id}
     </select>
 
 
-    <select id="findAll" resultType="Agency">
-        SELECT * FROM agencies;
+    <select id="findAll" resultType="Category">
+        SELECT * FROM categories;
     </select>
-
-
-
-
-
-
-
-
 
 </mapper>
