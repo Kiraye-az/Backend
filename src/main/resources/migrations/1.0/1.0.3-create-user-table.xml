@@ -5,13 +5,37 @@
 
     <changeSet id="createUserTable" author="alsu-ismayilzada">
         <createTable tableName="users">
-            <column name="id" type="INT">
-                <constraints primaryKey="true" nullable="false" />
+            <column name="id" type="INT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="fullName" type="VARCHAR(255)" />
-            <column name="mail" type="VARCHAR(255)" />
-            <column name="password" type="VARCHAR(255)" />
+            <column name="first_name" type="VARCHAR(255)" />
+            <column name="last_name" type="VARCHAR(255)" />
+            <column name="email" type="VARCHAR(255)">
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="password" type="VARCHAR(255)" >
+                <constraints unique="true" nullable="false" />
+            </column>
+            <column name="created_at" type="TIMESTAMP" />
+            <column name="updated_at" type="TIMESTAMP" />
+            <column name="is_active" type="BOOLEAN" />
+            <column name="role_id" type="INT">
+                <constraints nullable="false" />
+            </column>
         </createTable>
+
+
+        <addForeignKeyConstraint  baseColumnNames="role_id"
+                                  baseTableName="users"
+                                  constraintName="fk_role_id"
+                                  deferrable="false"
+                                  initiallyDeferred="false"
+                                  onDelete="NO ACTION"
+                                  onUpdate="NO ACTION"
+                                  referencedColumnNames="id"
+                                  referencedTableName="roles"
+                                  validate="true"/>
+
     </changeSet>
 
 </databaseChangeLog>

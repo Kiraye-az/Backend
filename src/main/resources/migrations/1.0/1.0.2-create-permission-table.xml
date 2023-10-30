@@ -5,7 +5,7 @@
 
     <changeSet id="createPermissionsTable" author="alsu-ismayilzada">
         <createTable tableName="permissions">
-            <column name="id" type="INT">
+            <column name="id" type="INT" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false" />
             </column>
             <column name="name" type="VARCHAR(255)" />
